@@ -8,6 +8,7 @@
 {% block content %}
 
     <!-- Header -->
+
     <div class="header bg-primary pb-6">
       <div class="container-fluid">
         <div class="header-body">
@@ -65,77 +66,84 @@
           </div>
         </div>
       </div>
-      {% for file in resluts %}
-      <h1>{{file.filename}}</h1>
-      <div class="row">
-            <div class="col-xl-4 col-md-6">
-              <div class="card card-stats " style="background-color:{{file.dense|layer_color}} ">
-                <!-- Card body -->
-                <div class="card-body">
-                  <div class="row">
-                    <div class="col">
-                      <h5 class="card-title text-uppercase text-muted mb-0">Total Hidden Layers</h5>
-                      <span class="h2 font-weight-bold mb-0">{{file.dense}}</span>
-                    </div>
-                    <div class="col-auto">
-                      <div class="icon icon-shape bg-gradient-red text-white rounded-circle shadow">
-                        <i class="{{file.dense|layer_icon}}"></i>
+      {% if not valid_link %}
+      <div class="alert alert-danger" role="alert">
+        Invalid Github Repository or Directory
+      </div>
+    {%endif%}
+      {% if resluts %}
+        {% for file in resluts %}
+        <h1>{{file.filename}}</h1>
+        <div class="row">
+              <div class="col-xl-4 col-md-6">
+                <div class="card card-stats " style="background-color:{{file.dense|layer_color}} ">
+                  <!-- Card body -->
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col">
+                        <h5 class="card-title text-uppercase text-muted mb-0">Total Hidden Layers</h5>
+                        <span class="h2 font-weight-bold mb-0">{{file.dense}}</span>
+                      </div>
+                      <div class="col-auto">
+                        <div class="icon icon-shape bg-gradient-red text-white rounded-circle shadow">
+                          <i class="{{file.dense|layer_icon}}"></i>
+                        </div>
                       </div>
                     </div>
+                    <p class="mt-3 mb-0 text-sm">
+                      <span class="text-success mr-2"> </span>
+                      <span class="text-nowrap"></span>
+                    </p>
                   </div>
-                  <p class="mt-3 mb-0 text-sm">
-                    <span class="text-success mr-2"> </span>
-                    <span class="text-nowrap"></span>
-                  </p>
+                </div>
+              </div>
+              <div class="col-xl-4 col-md-6">
+                <div class="card card-stats" style="background-color:{{file.relu|layer_color}} ">
+                  <!-- Card body -->
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col">
+                        <h5 class="card-title text-uppercase text-muted mb-0">Relu Layers</h5>
+                        <span class="h2 font-weight-bold mb-0">{{file.relu}}</span>
+                      </div>
+                      <div class="col-auto">
+                        <div class="icon icon-shape bg-gradient-orange text-white rounded-circle shadow">
+                          <i class="{{file.relu|layer_icon}}"></i>
+                        </div>
+                      </div>
+                    </div>
+                    <p class="mt-3 mb-0 text-sm">
+                      <span class="text-success mr-2"></span>
+                      <span class="text-nowrap"></span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-4 col-md-6">
+                <div class="card card-stats " style="background-color:{{file.sigmoid|layer_color}} ">
+                  <!-- Card body -->
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col">
+                        <h5 class="card-title text-uppercase text-muted mb-0">Sigmoid Layers</h5>
+                        <span class="h2 font-weight-bold mb-0">{{file.sigmoid}}</span>
+                      </div>
+                      <div class="col-auto">
+                        <div class="icon icon-shape bg-gradient-green text-white rounded-circle shadow">
+                          <i class="{{file.sigmoid|layer_icon}}"></i>
+                        </div>
+                      </div>
+                    </div>
+                    <p class="mt-3 mb-0 text-sm">
+                      <span class="text-success mr-2"></span>
+                      <span class="text-nowrap"></span>
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
-            <div class="col-xl-4 col-md-6">
-              <div class="card card-stats" style="background-color:{{file.relu|layer_color}} ">
-                <!-- Card body -->
-                <div class="card-body">
-                  <div class="row">
-                    <div class="col">
-                      <h5 class="card-title text-uppercase text-muted mb-0">Relu Layers</h5>
-                      <span class="h2 font-weight-bold mb-0">{{file.relu}}</span>
-                    </div>
-                    <div class="col-auto">
-                      <div class="icon icon-shape bg-gradient-orange text-white rounded-circle shadow">
-                        <i class="{{file.relu|layer_icon}}"></i>
-                      </div>
-                    </div>
-                  </div>
-                  <p class="mt-3 mb-0 text-sm">
-                    <span class="text-success mr-2"></span>
-                    <span class="text-nowrap"></span>
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="col-xl-4 col-md-6">
-              <div class="card card-stats " style="background-color:{{file.sigmoid|layer_color}} ">
-                <!-- Card body -->
-                <div class="card-body">
-                  <div class="row">
-                    <div class="col">
-                      <h5 class="card-title text-uppercase text-muted mb-0">Sigmoid Layers</h5>
-                      <span class="h2 font-weight-bold mb-0">{{file.sigmoid}}</span>
-                    </div>
-                    <div class="col-auto">
-                      <div class="icon icon-shape bg-gradient-green text-white rounded-circle shadow">
-                        <i class="{{file.sigmoid|layer_icon}}"></i>
-                      </div>
-                    </div>
-                  </div>
-                  <p class="mt-3 mb-0 text-sm">
-                    <span class="text-success mr-2"></span>
-                    <span class="text-nowrap"></span>
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-      {% endfor %}
+        {% endfor %}
+      {% endif %}
       {% include "includes/footer.html" %}
 
     </div>
