@@ -1,5 +1,5 @@
 # Get the code
-git clone https://github.com/creativetimofficial/argon-dashboard-django.git
+git clone https://github.com/Eng-HassanRaza/kodex.git
 cd argon-dashboard-django
 
 # Virtualenv modules installation (Unix based systems)
