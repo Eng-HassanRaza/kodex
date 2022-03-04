@@ -88,8 +88,9 @@ The application can be easily executed in a docker container. The steps:
 > Get the code
 
 ```bash
-$ git clone https://github.com/creativetimofficial/argon-dashboard-django.git
-$ cd argon-dashboard-django
+
+$git clone https://github.com/Eng-HassanRaza/kodex.git
+$cd kodex
 ```
 
 > Start the app in Docker
