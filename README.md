@@ -1,6 +1,7 @@
 # Get the code
 git clone https://github.com/Eng-HassanRaza/kodex.git
-cd argon-dashboard-django
+
+cd kodex
 
 # Virtualenv modules installation (Unix based systems)
 virtualenv env
